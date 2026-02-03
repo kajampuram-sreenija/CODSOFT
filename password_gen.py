@@ -1,13 +1,18 @@
-import random
+input("Press Enter to close...")
+import secrets
 import string
 
-print("--- Task 3: Password Generator ---")
-length = int(input("Enter how long you want your password: "))
+print("--- Secure Password Generator ---")
+try:
+    length = int(input("Enter password length: "))
+    if length <= 0:
+        raise ValueError("Length must be positive.")
 
-# This mixes letters, numbers, and symbols
-data = string.ascii_letters + string.digits + string.punctuation
+    chars = string.ascii_letters + string.digits + string.punctuation
+    password = "".join(secrets.choice(chars) for _ in range(length))
+    print(f"Your Password: {password}")
+    print("Success! Task complete.")
+except Exception as e:
+    print(f"Error: {e}")
 
-# The next line MUST be exactly like this:
-password = "".join(random.choice(data) for i in range(length))
-
-print(f"Your strong password is: {password}")
+input("Press Enter to close...")
