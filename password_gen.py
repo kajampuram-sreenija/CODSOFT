@@ -1,4 +1,3 @@
-input("Press Enter to close...")
 import secrets
 import string
 
